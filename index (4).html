@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semret Gebru — Developer & AI Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0e0e;
+  --surface: #161616;
+  --border: #2a2a2a;
+  --text: #f0ede8;
+  --muted: #777;
+  --accent: #c8f0a0;
+  --accent2: #a0d4f0;
+  --accent3: #f0c8a0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(14,14,14,0.92);
+  backdrop-filter: blur(12px);
+}
+.nav-name { font-family: 'DM Serif Display', serif; font-size: 18px; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: flex-end;
+  padding: 8rem 2.5rem 5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.dot-grid {
+  position: absolute; top: 5rem; right: 3rem;
+  width: 220px; height: 220px;
+  background-image: radial-gradient(circle, #2e2e2e 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1100px;
+}
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(54px, 7vw, 90px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.hero-title em { font-style: italic; color: var(--accent); }
+.hero-right { display: flex; flex-direction: column; justify-content: flex-end; gap: 1.75rem; }
+.hero-desc { font-size: 15px; color: var(--muted); line-height: 1.85; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-tag {
+  font-size: 12px; padding: 5px 14px;
+  border: 1px solid var(--border);
+  border-radius: 100px; color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.hero-contact a {
+  display: block; font-size: 13px; color: var(--muted);
+  text-decoration: none; margin-bottom: 3px; transition: color 0.2s;
+}
+.hero-contact a:hover { color: var(--accent); }
+
+/* WRAPPER */
+.wrapper { max-width: 1100px; margin: 0 auto; }
+
+/* SECTIONS */
+.section { padding: 5rem 2.5rem; border-bottom: 1px solid var(--border); }
+.section-label {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 3rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* PROJECTS GRID */
+.projects-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5px; background: var(--border);
+  border: 1px solid var(--border);
+}
+.project-card {
+  background: var(--bg); padding: 2.5rem;
+  transition: background 0.25s;
+}
+.project-card:hover { background: var(--surface); }
+.project-card.full { grid-column: 1 / -1; }
+.p-num {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.1em;
+  margin-bottom: 1.25rem; font-style: italic;
+  font-family: 'DM Serif Display', serif;
+}
+.p-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; margin-bottom: 1rem; line-height: 1.25;
+}
+.p-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; }
+.p-bullets { list-style: none; margin-bottom: 1.5rem; }
+.p-bullets li {
+  font-size: 13px; color: var(--muted); padding: 5px 0;
+  border-top: 1px solid var(--border); line-height: 1.6;
+  padding-left: 1rem; position: relative;
+}
+.p-bullets li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--border); font-size: 11px; top: 7px;
+}
+.p-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.p-tag {
+  font-size: 11px; padding: 3px 10px;
+  border-radius: 100px; letter-spacing: 0.02em;
+}
+.tag-php { border: 1px solid #3C3489; color: #AFA9EC; }
+.tag-flutter { border: 1px solid #185FA5; color: #85B7EB; }
+.tag-sys { border: 1px solid #854F0B; color: #EF9F27; }
+.tag-ai { border: 1px solid #0F6E56; color: #5DCAA5; }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+.skill-group { background: var(--bg); padding: 2rem; }
+.skill-group-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.skill-item { font-size: 14px; padding: 6px 0; border-top: 1px solid var(--border); color: var(--text); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.about-text { font-size: 15px; color: var(--muted); line-height: 1.85; }
+.about-text p { margin-bottom: 1rem; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+.stat-box { background: var(--bg); padding: 1.5rem; }
+.stat-num { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+.stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+
+/* LANGUAGES */
+.lang-list { display: flex; flex-direction: column; gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+.lang-row {
+  background: var(--bg); padding: 1.5rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background 0.2s;
+}
+.lang-row:hover { background: var(--surface); }
+.lang-name { font-family: 'DM Serif Display', serif; font-size: 20px; }
+.lang-level { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.lang-bar { width: 120px; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.lang-fill { height: 100%; border-radius: 2px; background: var(--accent); }
+
+/* FOOTER */
+footer {
+  padding: 3rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--muted); }
+.footer-note { font-size: 12px; color: var(--border); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-title { animation: fadeUp 0.7s ease both; }
+.hero-right  { animation: fadeUp 0.7s 0.15s ease both; }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { gap: 1rem; }
+  .hero { padding: 7rem 1.25rem 3.5rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .section { padding: 3.5rem 1.25rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.full { grid-column: 1; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Semret Gebru</span>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="dot-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <h1 class="hero-title">Semret<br><em>Gebru</em></h1>
+    </div>
+    <div class="hero-right">
+      <p class="hero-desc">4th-year Computer Science student building web and mobile applications. Native Amharic speaker. Passionate about AI data work and creating user-focused software.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">PHP / Laravel</span>
+        <span class="hero-tag">Flutter</span>
+        <span class="hero-tag">AI Data Specialist</span>
+        <span class="hero-tag">Addis Abeba, Ethiopia</span>
+      </div>
+      <div class="hero-contact">
+        <a href="mailto:semrey14@gmail.com">semrey14@gmail.com</a>
+        <a href="tel:+251945215940">+251 945 215 940</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+
+  <div class="section" id="projects">
+    <div class="section-label">Selected projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card full">
+        <div class="p-num">01 — Web Development</div>
+        <h2 class="p-title">Blog Platform — PHP / Laravel</h2>
+        <p class="p-desc">A full-featured blog platform with complete content management, backend logic, and database integration.</p>
+        <ul class="p-bullets">
+          <li>Built full CRUD functionality for creating, editing, and deleting blog posts</li>
+          <li>Implemented backend logic for user input handling and MySQL database operations</li>
+          <li>Used Laravel framework to structure and optimize the application architecture</li>
+        </ul>
+        <div class="p-tags">
+          <span class="p-tag tag-php">PHP</span>
+          <span class="p-tag tag-php">Laravel</span>
+          <span class="p-tag tag-php">MySQL</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-num">02 — Mobile</div>
+        <h2 class="p-title">Sandwich Business App</h2>
+        <p class="p-desc">Mobile app concept for managing menu display and customer orders for a small business.</p>
+        <ul class="p-bullets">
+          <li>Applied mobile UI/UX design principles for smooth, intuitive experience</li>
+          <li>Connected technical development with real-world business needs</li>
+        </ul>
+        <div class="p-tags">
+          <span class="p-tag tag-flutter">Flutter</span>
+          <span class="p-tag tag-flutter">Dart</span>
+          <span class="p-tag tag-flutter">UI/UX</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-num">03 — Systems</div>
+        <h2 class="p-title">8086 Assembly Program</h2>
+        <p class="p-desc">Low-level program developed in 8086 assembly with full project defence.</p>
+        <ul class="p-bullets">
+          <li>Applied registers, memory management, and system-level optimization</li>
+          <li>Successfully presented and defended the project to faculty</li>
+        </ul>
+        <div class="p-tags">
+          <span class="p-tag tag-sys">Assembly (8086)</span>
+          <span class="p-tag tag-sys">Low-level</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="section-label">Skills & tools</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Web</div>
+        <div class="skill-item">PHP</div>
+        <div class="skill-item">Laravel</div>
+        <div class="skill-item">MySQL</div>
+        <div class="skill-item">HTML / CSS</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Mobile & Systems</div>
+        <div class="skill-item">Flutter</div>
+        <div class="skill-item">Dart</div>
+        <div class="skill-item">Assembly (8086)</div>
+        <div class="skill-item">UI/UX Design</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">AI & Data</div>
+        <div class="skill-item">Data Annotation</div>
+        <div class="skill-item">Content Evaluation</div>
+        <div class="skill-item">Pairwise Comparison</div>
+        <div class="skill-item">Object Tagging</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="about">
+    <div class="section-label">About</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a 4th-year Computer Science student at Hilcoe School of Computer Science in Addis Abeba, Ethiopia (2022–2027). I build web and mobile applications and have a strong interest in AI data work.</p>
+        <p>My technical background spans from high-level web frameworks like Laravel down to low-level assembly programming — which gives me a broad understanding of how software systems work at every layer.</p>
+        <p>As a native Amharic speaker with advanced English, I bring a rare language skill to AI data and annotation projects, particularly those focused on improving AI models for underrepresented languages.</p>
+      </div>
+      <div>
+        <div class="stat-grid" style="margin-bottom: 1.5px;">
+          <div class="stat-box">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Projects completed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Languages spoken</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">4th</div>
+            <div class="stat-label">Year of BSc CS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Curiosity</div>
+          </div>
+        </div>
+        <div class="lang-list">
+          <div class="lang-row">
+            <span class="lang-name">Amharic</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">English</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+            <span class="lang-level">Advanced</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Korean</span>
+            <div class="lang-bar"><div class="lang-fill" style="width:45%; background: var(--accent3);"></div></div>
+            <span class="lang-level">Intermediate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-name">Semret Gebru</span>
+  <span class="footer-note">semrey14@gmail.com · Addis Abeba, Ethiopia</span>
+</footer>
+
+</body>
+</html>
