@@ -1,1 +1,0 @@
-# semretgeb.github.io
