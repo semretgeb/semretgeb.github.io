@@ -5,7 +5,7 @@ Welcome to my personal portfolio website! This project showcases my work, skills
 ## 🚀 Live Demo
 
 Check out the website here:
-👉 https://your-username.github.io/your-repo-name/
+👉 https://semretgeb.github.io/semretgeb/
 
 ## 📌 About
 
@@ -19,7 +19,7 @@ This portfolio was created to highlight:
 
 * HTML
 * CSS
-* (Add JavaScript if you used it)
+* Java Script
 
 ## 📂 Features
 
@@ -27,16 +27,13 @@ This portfolio was created to highlight:
 * Project showcase section
 * Contact information
 
-## 📸 Preview
-
-(Add a screenshot of your website here if you want)
 
 ## 📬 Contact
 
 Feel free to reach out:
 
-* Email: [your-email@example.com](mailto:your-email@example.com)
-* LinkedIn: (your link)
+* Email: [semrey14@gmail.com](mailto:semrey14@gmail.com)
+* LinkedIn: (https://www.linkedin.com/in/semret-gebru-57423621a?utm_source=share_via&utm_content=profile&utm_medium=member_ios)
 
 ## 📄 License
 
