@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semret Gebru — Developer & AI Specialist</title>
+<title>Semret Gebru — Software Developer & QA</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -141,7 +141,7 @@ nav {
 .tag-ai { border: 1px solid #0F6E56; color: #5DCAA5; }
 
 /* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
 .skill-group { background: var(--bg); padding: 2rem; }
 .skill-group-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
 .skill-item { font-size: 14px; padding: 6px 0; border-top: 1px solid var(--border); color: var(--text); }
@@ -218,11 +218,13 @@ footer {
       <h1 class="hero-title">Semret<br><em>Gebru</em></h1>
     </div>
     <div class="hero-right">
-      <p class="hero-desc">4th-year Computer Science student building web and mobile applications. Native Amharic speaker. Passionate about AI data work and creating user-focused software.</p>
+      <p class="hero-desc">Computer Science graduate who builds web and mobile applications and tests them before they ship. I write automated and manual test suites, verify fixes, and check that data and access rules hold across each feature. Native Amharic speaker.</p>
       <div class="hero-tags">
+        <span class="hero-tag">Software QA</span>
+        <span class="hero-tag">Test Automation</span>
+        <span class="hero-tag">Manual Testing</span>
         <span class="hero-tag">PHP / Laravel</span>
         <span class="hero-tag">Flutter</span>
-        <span class="hero-tag">AI Data Specialist</span>
         <span class="hero-tag">Addis Abeba, Ethiopia</span>
       </div>
       <div class="hero-contact">
@@ -240,7 +242,27 @@ footer {
     <div class="projects-grid">
 
       <div class="project-card full">
-        <div class="p-num">01 — Web Development</div>
+        <div class="p-num">01 — Full-stack & QA</div>
+        <h2 class="p-title">ShopBot — Multi-shop Telegram Platform</h2>
+        <p class="p-desc">A live platform that lets small shops run their storefront, products and orders inside Telegram. I built it and tested it end to end: onboarding, product management, customer ordering and an assistant that answers from each shop's own data.</p>
+        <ul class="p-bullets">
+          <li>Wrote 51 automated pytest tests covering authentication, subscription rules, order logic and API access</li>
+          <li>Tested shop-to-shop isolation so one shop's customers, orders and data cannot be read from another shop, and kept those checks in the automated suite</li>
+          <li>Wrote a 50-point manual test checklist (onboarding, ordering, admin actions, robustness) and worked through it before each release</li>
+          <li>Used a failing test to find a missing payment-instruction bug in order messages, then fixed it; also fixed database errors in test setup</li>
+          <li>Deployed to a hosted environment with PostgreSQL, running database migrations automatically on every deploy</li>
+        </ul>
+        <div class="p-tags">
+          <span class="p-tag tag-ai">Python</span>
+          <span class="p-tag tag-ai">FastAPI</span>
+          <span class="p-tag tag-ai">pytest</span>
+          <span class="p-tag tag-ai">PostgreSQL</span>
+          <span class="p-tag tag-ai">Telegram Bot API</span>
+        </div>
+      </div>
+
+      <div class="project-card full">
+        <div class="p-num">02 — Web Development</div>
         <h2 class="p-title">Blog Platform — PHP / Laravel</h2>
         <p class="p-desc">A full-featured blog platform with complete content management, backend logic, and database integration.</p>
         <ul class="p-bullets">
@@ -256,7 +278,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <div class="p-num">02 — Mobile</div>
+        <div class="p-num">03 — Mobile</div>
         <h2 class="p-title">Sandwich Business App</h2>
         <p class="p-desc">Mobile app concept for managing menu display and customer orders for a small business.</p>
         <ul class="p-bullets">
@@ -271,7 +293,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <div class="p-num">03 — Systems</div>
+        <div class="p-num">04 — Systems</div>
         <h2 class="p-title">8086 Assembly Program</h2>
         <p class="p-desc">Low-level program developed in 8086 assembly with full project defence.</p>
         <ul class="p-bullets">
@@ -291,10 +313,20 @@ footer {
     <div class="section-label">Skills & tools</div>
     <div class="skills-grid">
       <div class="skill-group">
-        <div class="skill-group-title">Web</div>
-        <div class="skill-item">PHP</div>
-        <div class="skill-item">Laravel</div>
-        <div class="skill-item">MySQL</div>
+        <div class="skill-group-title">Testing & QA</div>
+        <div class="skill-item">Test case design</div>
+        <div class="skill-item">Manual test checklists</div>
+        <div class="skill-item">Automated tests (pytest)</div>
+        <div class="skill-item">API and access-rule testing</div>
+        <div class="skill-item">Regression checks before deploy</div>
+        <div class="skill-item">Bug verification and fixes</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Web & Backend</div>
+        <div class="skill-item">Python / FastAPI</div>
+        <div class="skill-item">PHP / Laravel</div>
+        <div class="skill-item">PostgreSQL</div>
+        <div class="skill-item">MySQL / SQL</div>
         <div class="skill-item">HTML / CSS</div>
       </div>
       <div class="skill-group">
@@ -318,9 +350,9 @@ footer {
     <div class="section-label">About</div>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a 4th-year Computer Science student at Hilcoe School of Computer Science in Addis Abeba, Ethiopia (2022–2027). I build web and mobile applications and have a strong interest in AI data work.</p>
-        <p>My technical background spans from high-level web frameworks like Laravel down to low-level assembly programming — which gives me a broad understanding of how software systems work at every layer.</p>
-        <p>As a native Amharic speaker with advanced English, I bring a rare language skill to AI data and annotation projects, particularly those focused on improving AI models for underrepresented languages.</p>
+        <p>I recently graduated with a BSc in Computer Science from HiLCoE School of Computer Science in Addis Abeba, Ethiopia (2022–2026). I build web and mobile applications, and I care most about whether they work correctly before users see them.</p>
+        <p>Testing is a large part of my work. My recent projects, including ShopBot, have automated test suites, manual checklists for the workflows people actually use, and a rule that nothing deploys with failing tests. I look for the cases that break: wrong data, missing permissions, and features that work alone but fail together.</p>
+        <p>My technical background spans from high-level web frameworks like Laravel down to low-level assembly programming, which gives me a broad understanding of how software systems work at every layer. As a native Amharic speaker with advanced English, I also work on AI data and annotation projects, particularly ones that improve models for underrepresented languages.</p>
       </div>
       <div>
         <div class="stat-grid" style="margin-bottom: 1.5px;">
@@ -329,16 +361,16 @@ footer {
             <div class="stat-label">Projects completed</div>
           </div>
           <div class="stat-box">
+            <div class="stat-num">51</div>
+            <div class="stat-label">Automated tests on ShopBot</div>
+          </div>
+          <div class="stat-box">
             <div class="stat-num">3</div>
             <div class="stat-label">Languages spoken</div>
           </div>
           <div class="stat-box">
-            <div class="stat-num">4th</div>
-            <div class="stat-label">Year of BSc CS</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">∞</div>
-            <div class="stat-label">Curiosity</div>
+            <div class="stat-num">BSc</div>
+            <div class="stat-label">Computer Science, graduated</div>
           </div>
         </div>
         <div class="lang-list">
