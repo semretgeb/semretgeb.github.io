@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShopBot Case Study</title>
+<meta name="description" content="ShopBot: a live Telegram shop platform with an AI assistant for small businesses in Ethiopia. Case study by Semret Gebru.">
+<meta property="og:title" content="ShopBot Case Study">
+<meta property="og:description" content="A live Telegram shop platform with an AI assistant for small businesses in Ethiopia.">
+<meta property="og:image" content="img/cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --soft: #f4f7fb;
+    --text: #0f1b2d;
+    --muted: #55627a;
+    --line: #e2e8f0;
+    --blue: #1f8fd6;
+    --blue-dark: #146fa8;
+    --gold: #b7791f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1220; --soft: #121c2e; --text: #e8eef7; --muted: #9aa8bf; --line: #23314a; --blue: #4fb3f0; --blue-dark: #7cc8f5; --gold: #f2c065; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Inter", system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .am { font-family: "Noto Sans Ethiopic", sans-serif; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header.hero { background: linear-gradient(135deg, #0b1830, #12305a 60%, #1f8fd6); color: #fff; padding: 56px 0 48px; }
+  .kicker { display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.14); padding: 6px 12px; border-radius: 999px; }
+  h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.1; margin: 16px 0 12px; font-weight: 800; }
+  .lead { font-size: 1.15rem; color: #d6e6f7; max-width: 640px; margin: 0; }
+  .tagline { margin-top: 14px; color: #ffd27a; font-size: 1.1rem; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 32px; }
+  .fact { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 14px 16px; }
+  .fact b { display: block; font-size: 1rem; }
+  .fact span { font-size: .85rem; color: #c8d9ec; }
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  h2 { font-size: 1.6rem; margin: 0 0 14px; }
+  h3 { font-size: 1.05rem; margin: 0 0 6px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .steps li { counter-increment: s; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 16px 16px 16px 60px; position: relative; }
+  .steps li::before { content: counter(s); position: absolute; left: 16px; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .9rem; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+  figure { margin: 0; }
+  figure img { width: 100%; border-radius: 18px; border: 1px solid var(--line); display: block; background: #000; }
+  figcaption { font-size: .88rem; color: var(--muted); margin-top: 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: .88rem; font-weight: 500; }
+  ul.clean { padding-left: 20px; margin: 0; }
+  ul.clean li { margin-bottom: 6px; }
+  .cta { text-align: center; padding: 56px 0 64px; }
+  .btn { display: inline-block; background: var(--blue); color: #fff; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 12px; }
+  .btn:hover { background: var(--blue-dark); }
+  .btn.ghost { background: transparent; color: var(--blue); border: 2px solid var(--blue); margin-left: 8px; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 20px 40px; }
+  @media (max-width: 480px) { .btn.ghost { margin: 12px 0 0; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">Case study · Live product</span>
+    <h1>ShopBot</h1>
+    <p class="lead">A Telegram shop platform with an AI assistant, so small businesses in Ethiopia can sell online without a website.</p>
+    <p class="tagline am">ያለ ድረ-ገጽ በቴሌግራም የራስዎን ሚኒ ሱቅ ይክፈቱ</p>
+    <div class="facts">
+      <div class="fact"><b>Live on Telegram</b><span>Deployed and running in production</span></div>
+      <div class="fact"><b>Amharic + English</b><span>Bot, storefront and AI</span></div>
+      <div class="fact"><b>Multi-shop</b><span>One bot serves many shops</span></div>
+      <div class="fact"><b>Founder &amp; developer</b><span>Designed, built and run by me</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap grid2">
+      <div>
+        <h2>The problem</h2>
+        <p>Most small sellers in Ethiopia already sell through Telegram channels and chats. But orders get lost between messages, prices are typed again and again, and customers wait hours for a reply.</p>
+        <p class="muted">A website or app is too expensive for them, and card payments are not an option for most customers.</p>
+      </div>
+      <div>
+        <h2>The solution</h2>
+        <p>ShopBot turns Telegram into a real shop. Owners set up a shop in chat in a few minutes and share one link. Customers browse a mini storefront inside Telegram, order, and pay on delivery or by bank transfer.</p>
+        <p class="muted">An AI assistant answers customer questions from that shop's own data, and hands anything it doesn't know to the owner.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><h3>Owner opens a shop in chat</h3><span class="muted">A 5-step setup in Amharic or English: name, description, phone, delivery and payment details.</span></li>
+        <li><h3>Products in seconds</h3><span class="muted">Send a photo with a caption like "Name - 1200" and the product is listed, with categories, stock and hide/show.</span></li>
+        <li><h3>Share one link or QR code</h3><span class="muted">Customers open the shop's storefront right inside Telegram, with no app to install.</span></li>
+        <li><h3>Customers order and pay</h3><span class="muted">Cart and checkout, pay on delivery or by transfer with a payment screenshot. The order status updates in their chat.</span></li>
+        <li><h3>Owner manages orders in chat</h3><span class="muted">Each order arrives as a card with Confirm, Reject, On the way, Delivered and Call buttons.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Screenshots</h2>
+      <p class="muted">From the Amharic demo. Phone numbers shown are test examples.</p>
+      <div class="shots">
+        <figure><img src="img/storefront.jpg" alt="Product page in the Telegram storefront" loading="lazy"><figcaption>Storefront: product page with photos, price and stock</figcaption></figure>
+        <figure><img src="img/order-received.jpg" alt="Order confirmation screen" loading="lazy"><figcaption>Checkout done: order summary and status</figcaption></figure>
+        <figure><img src="img/owner-order.jpg" alt="Owner order card in Telegram chat" loading="lazy"><figcaption>Owner view: new orders arrive in chat</figcaption></figure>
+        <figure><img src="img/ai-assistant.jpg" alt="AI assistant replying to a customer" loading="lazy"><figcaption>AI assistant: hands an unknown question to the owner instead of guessing</figcaption></figure>
+        <figure><img src="img/onboarding.jpg" alt="Shop setup steps in chat" loading="lazy"><figcaption>Shop setup in chat, step by step, in Amharic</figcaption></figure>
+        <figure><img src="img/add-product.jpg" alt="Shop settings in the Mini App" loading="lazy"><figcaption>Shop settings in the Mini App</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid2">
+      <div class="card">
+        <h2>The AI assistant</h2>
+        <ul class="clean">
+          <li>Answers in Amharic or English about price, stock, delivery and payment</li>
+          <li>Uses only that shop's products and details, so it doesn't invent answers</li>
+          <li>Forwards questions it can't answer to the owner</li>
+          <li>Rate limits per customer, per shop and overall, to keep costs predictable</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>The business side</h2>
+        <ul class="clean">
+          <li>14-day free trial, then a monthly subscription in birr</li>
+          <li>Owners pay by transfer and send a screenshot; admin approves</li>
+          <li>Automatic expiry reminders 3 days before the end</li>
+          <li>Admin tools: shops, approvals, stats and broadcasts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Built with</h2>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span>
+        <span class="tag">Telegram Bot API</span><span class="tag">Telegram Mini App</span><span class="tag">LLM assistant</span>
+        <span class="tag">Webhooks</span><span class="tag">Amharic / English i18n</span>
+      </div>
+      <p class="muted" style="margin-top:16px">Every shop's data is kept separate, and the storefront checks each Telegram login before showing anything.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>What I did</h2>
+      <p>I designed and built ShopBot end to end and I run it: the bot and its order flows, the Mini App storefront, the AI assistant, payments and subscriptions, the admin tools, and deployment.</p>
+      <p class="muted">I build the same kind of thing for other businesses with n8n and AI: support bots, lead capture, daily reports and document processing. <a href="https://github.com/semretgeb/n8n-automations">See my n8n workflows on GitHub</a>.</p>
+    </div>
+  </section>
+
+  <div class="cta wrap">
+    <h2>Want something like this for your business?</h2>
+    <p class="muted">Telegram or WhatsApp shops, AI assistants, and automations that save your team hours.</p>
+    <a class="btn" href="https://www.upwork.com/freelancers/~0137b86b42a8cd4a9f">Hire me on Upwork</a><a class="btn ghost" href="https://semretgeb.github.io/">About me</a>
+  </div>
+</main>
+
+<footer>© Semret Gebru · ShopBot case study</footer>
+</body>
+</html>
