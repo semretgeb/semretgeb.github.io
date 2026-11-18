@@ -453,5 +453,71 @@ footer {
   <span class="footer-note">semrey14@gmail.com · Addis Abeba, Ethiopia</span>
 </footer>
 
+<!-- Website assistant: n8n chat widget (n8n + Claude + Supabase knowledge base) -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat@1.46.0/dist/style.css" rel="stylesheet">
+<style>
+  :root {
+    --chat--color-primary: #1f8fd6;
+    --chat--color-primary-shade-50: #1a7cbb;
+    --chat--color-primary-shade-100: #146fa8;
+    --chat--color-secondary: #1f8fd6;
+    --chat--toggle--background: #1f8fd6;
+    --chat--toggle--hover--background: #146fa8;
+    --chat--header--background: #0f1b2d;
+    --chat--header--color: #ffffff;
+  }
+  #assistant-offline {
+    position: fixed; right: 20px; bottom: 20px; z-index: 9999; display: none;
+    background: #0f1b2d; color: #fff; border-radius: 14px; padding: 12px 16px; max-width: 280px;
+    font: 14px/1.45 system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  }
+  #assistant-offline a { color: #7cc8f5; }
+</style>
+<div id="assistant-offline">My website assistant is offline right now. You can reach me on <a href="https://www.upwork.com/freelancers/~0137b86b42a8cd4a9f">Upwork</a> or by email.</div>
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat@1.46.0/dist/chat.bundle.es.js';
+  const WEBHOOK = 'https://intromissible-arlean-ungrateful.ngrok-free.dev/webhook/1e55c2af-3a25-426b-aef6-e5d6fbf24671/chat';
+  const HEADERS = { 'ngrok-skip-browser-warning': 'true' };
+
+  async function online() {
+    try {
+      const r = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...HEADERS },
+        body: JSON.stringify({ action: 'loadPreviousSession', sessionId: 'status-check' }),
+        signal: AbortSignal.timeout(6000),
+      });
+      return r.ok && (r.headers.get('content-type') || '').includes('json');
+    } catch { return false; }
+  }
+
+  if (await online()) {
+    createChat({
+      webhookUrl: WEBHOOK,
+      webhookConfig: { method: 'POST', headers: HEADERS },
+      mode: 'window',
+      showWelcomeScreen: false,
+      loadPreviousSession: false,
+      initialMessages: [
+        "Hi! I'm Semret's assistant. 👋",
+        'Ask me about services, prices or past projects, or book a free 20-minute call.',
+      ],
+      i18n: {
+        en: {
+          title: 'Chat with Semret\'s assistant',
+          subtitle: 'Answers about services, prices and projects. Books calls too.',
+          footer: '',
+          getStarted: 'New conversation',
+          inputPlaceholder: 'Type your question…',
+        },
+      },
+    });
+  } else {
+    const box = document.getElementById('assistant-offline');
+    box.style.display = 'block';
+    setTimeout(() => { box.style.display = 'none'; }, 12000);
+  }
+</script>
+
 </body>
 </html>
