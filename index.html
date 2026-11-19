@@ -139,6 +139,9 @@ nav {
 .tag-flutter { border: 1px solid #185FA5; color: #85B7EB; }
 .tag-sys { border: 1px solid #854F0B; color: #EF9F27; }
 .tag-ai { border: 1px solid #0F6E56; color: #5DCAA5; }
+.p-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 1.25rem; }
+.p-links a { font-size: 13px; color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.p-links a:hover { opacity: 0.8; }
 
 /* SKILLS */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
@@ -220,6 +223,7 @@ footer {
     <div class="hero-right">
       <p class="hero-desc">Computer Science graduate who builds web and mobile applications and tests them before they ship. I write automated and manual test suites, verify fixes, and check that data and access rules hold across each feature. Native Amharic speaker.</p>
       <div class="hero-tags">
+        <span class="hero-tag">n8n &amp; AI Automation</span>
         <span class="hero-tag">Software QA</span>
         <span class="hero-tag">Test Automation</span>
         <span class="hero-tag">Manual Testing</span>
@@ -259,10 +263,32 @@ footer {
           <span class="p-tag tag-ai">PostgreSQL</span>
           <span class="p-tag tag-ai">Telegram Bot API</span>
         </div>
+        <div class="p-links"><a href="shopbot/">Read the case study</a></div>
       </div>
 
       <div class="project-card full">
-        <div class="p-num">02 — Full-stack & Security · In progress</div>
+        <div class="p-num">02 — AI Automation · Live on this site</div>
+        <h2 class="p-title">AI Website Assistant with a Knowledge Base and Call Booking</h2>
+        <p class="p-desc">The chat bubble at the bottom right of this page. It answers visitors only from my own information (services, prices, projects), qualifies leads, books a 20-minute call in my Google Calendar and sends me a Telegram alert with the details. Questions it can't answer come to me instead of being guessed.</p>
+        <ul class="p-bullets">
+          <li>Retrieval from a Supabase vector database with Gemini embeddings, so answers come from my own documents</li>
+          <li>Claude agent with memory and four tools: knowledge base, calendar check, booking and owner alert</li>
+          <li>Books a call only after the visitor confirms the details</li>
+          <li>About $0.0006 per answered question</li>
+        </ul>
+        <div class="p-tags">
+          <span class="p-tag tag-ai">n8n</span>
+          <span class="p-tag tag-ai">Claude</span>
+          <span class="p-tag tag-ai">Supabase</span>
+          <span class="p-tag tag-ai">RAG</span>
+          <span class="p-tag tag-ai">Google Calendar</span>
+          <span class="p-tag tag-ai">Telegram</span>
+        </div>
+        <div class="p-links"><a href="https://github.com/semretgeb/n8n-automations/tree/main/06-website-assistant">Workflows on GitHub</a></div>
+      </div>
+
+      <div class="project-card full">
+        <div class="p-num">03 — Full-stack & Security · In progress</div>
         <h2 class="p-title">HiLCoE — Hands-on Interactive Learning for Cybersecurity Operations and Education</h2>
         <p class="p-desc">A gamified cybersecurity learning platform for a school. Students solve challenges across four categories (Web Security, Cryptography, Digital Forensics and Network Security), and each challenge runs in its own isolated Docker environment. Built from scratch by a team of four.</p>
         <ul class="p-bullets">
@@ -280,21 +306,81 @@ footer {
       </div>
 
       <div class="project-card">
-        <div class="p-num">Automation · Built and tested</div>
-        <h2 class="p-title">AI Lead Automation Workflow</h2>
-        <p class="p-desc">An end-to-end lead workflow: a prospect fills in a form, and their details reach a CRM and the team's phone with no manual entry.</p>
+        <div class="p-num">Automation · n8n + Claude</div>
+        <h2 class="p-title">AI Lead Capture and Scoring</h2>
+        <p class="p-desc">A prospect fills in a form, AI scores the lead from 1 to 5 with a reason and a suggested reply, and the lead reaches a Notion CRM and the owner's phone with no manual entry.</p>
         <ul class="p-bullets">
-          <li>Captured prospect information through a Tally form</li>
-          <li>Automatically stored prospect details in a Notion CRM database</li>
-          <li>Sent real-time Telegram notifications</li>
-          <li>Eliminated manual data entry</li>
+          <li>Tally form to n8n webhook</li>
+          <li>Claude lead score, reason and suggested reply</li>
+          <li>Row in a Notion CRM and an instant Telegram alert</li>
+          <li>About 5 cents a month for 300 leads</li>
         </ul>
         <div class="p-tags">
           <span class="p-tag tag-ai">n8n</span>
-          <span class="p-tag tag-ai">Tally</span>
+          <span class="p-tag tag-ai">Claude</span>
           <span class="p-tag tag-ai">Notion</span>
           <span class="p-tag tag-ai">Telegram</span>
         </div>
+        <div class="p-links"><a href="https://github.com/semretgeb/n8n-automations/tree/main/01-lead-capture-ai-scoring">Workflow on GitHub</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-num">Automation · n8n + Claude</div>
+        <h2 class="p-title">AI Support Agent on Telegram</h2>
+        <p class="p-desc">A Telegram bot that answers customers 24/7 from a shop's own Google Sheet of products and FAQs, so it never invents prices or stock, and hands anything it can't answer to the owner.</p>
+        <ul class="p-bullets">
+          <li>Claude agent with conversation memory and two sheet tools</li>
+          <li>Owner alert on Telegram for questions it can't answer</li>
+          <li>Error workflow so failures are never silent</li>
+        </ul>
+        <div class="p-tags">
+          <span class="p-tag tag-ai">n8n</span>
+          <span class="p-tag tag-ai">Claude</span>
+          <span class="p-tag tag-ai">Google Sheets</span>
+          <span class="p-tag tag-ai">Telegram</span>
+        </div>
+        <div class="p-links"><a href="https://youtu.be/0XWijngAmbA">Watch the demo</a><a href="https://github.com/semretgeb/n8n-automations/tree/main/02-ai-support-agent-telegram">Workflow on GitHub</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-num">Automation · n8n + Claude</div>
+        <h2 class="p-title">Receipt and Invoice Processing</h2>
+        <p class="p-desc">PDF receipts arriving in Gmail are read automatically. AI extracts vendor, date, invoice number, currency, tax, total and category into Google Sheets, and posts a summary to Slack. Fields not printed on the receipt are left empty, never guessed.</p>
+        <div class="p-tags">
+          <span class="p-tag tag-ai">n8n</span>
+          <span class="p-tag tag-ai">Claude</span>
+          <span class="p-tag tag-ai">Gmail</span>
+          <span class="p-tag tag-ai">Google Sheets</span>
+          <span class="p-tag tag-ai">Slack</span>
+        </div>
+        <div class="p-links"><a href="https://www.loom.com/share/917972d9d74342f8a09829c4ca376c59">Watch the demo</a><a href="https://github.com/semretgeb/n8n-automations/tree/main/03-receipt-processing">Workflow on GitHub</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-num">Automation · n8n + Claude</div>
+        <h2 class="p-title">Content Drafts with Human Approval</h2>
+        <p class="p-desc">Paste an article link and AI writes a summary, a LinkedIn post and an X post from it. Drafts wait in Notion for approval; approved posts arrive in Slack ready to publish, and nothing goes out twice.</p>
+        <div class="p-tags">
+          <span class="p-tag tag-ai">n8n</span>
+          <span class="p-tag tag-ai">Claude</span>
+          <span class="p-tag tag-ai">Notion</span>
+          <span class="p-tag tag-ai">Slack</span>
+        </div>
+        <div class="p-links"><a href="https://youtu.be/5yoprVV5yOE">Watch the demo</a><a href="https://github.com/semretgeb/n8n-automations/tree/main/04-content-repurposing">Workflows on GitHub</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-num">Automation · n8n + Claude</div>
+        <h2 class="p-title">Morning Sales Report</h2>
+        <p class="p-desc">Every morning at 7:00 the workflow reads a shop's orders, calculates yesterday's revenue, top products and pending payments in code, and AI turns the numbers into a short briefing with one action for the day, sent by Telegram and email.</p>
+        <div class="p-tags">
+          <span class="p-tag tag-ai">n8n</span>
+          <span class="p-tag tag-ai">Claude</span>
+          <span class="p-tag tag-ai">Google Sheets</span>
+          <span class="p-tag tag-ai">Telegram</span>
+          <span class="p-tag tag-ai">Gmail</span>
+        </div>
+        <div class="p-links"><a href="https://youtu.be/ABhIhpixzJ8">Watch the demo</a><a href="https://github.com/semretgeb/n8n-automations/tree/main/05-morning-report">Workflow on GitHub</a></div>
       </div>
 
       <div class="project-card">
@@ -314,7 +400,19 @@ footer {
       </div>
 
       <div class="project-card full">
-        <div class="p-num">03 — Web Development</div>
+        <div class="p-num">Web · For a local café</div>
+        <h2 class="p-title">QR Code Menu for Bete Urael</h2>
+        <p class="p-desc">A phone-friendly menu in Amharic and English with prices in birr, built from the café's printed menu and hosted free, with a printable QR card for each table. Prices can change without reprinting the code.</p>
+        <div class="p-tags">
+          <span class="p-tag tag-php">HTML</span>
+          <span class="p-tag tag-php">JavaScript</span>
+          <span class="p-tag tag-php">GitHub Pages</span>
+        </div>
+        <div class="p-links"><a href="https://semretgeb.github.io/bete-urael-menu/">See the menu</a></div>
+      </div>
+
+      <div class="project-card full">
+        <div class="p-num">04 — Web Development</div>
         <h2 class="p-title">Blog Platform — PHP / Laravel</h2>
         <p class="p-desc">A full-featured blog platform with complete content management, backend logic, and database integration.</p>
         <ul class="p-bullets">
@@ -330,7 +428,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <div class="p-num">04 — Mobile</div>
+        <div class="p-num">05 — Mobile</div>
         <h2 class="p-title">Sandwich Business App</h2>
         <p class="p-desc">Mobile app concept for managing menu display and customer orders for a small business.</p>
         <ul class="p-bullets">
@@ -345,7 +443,7 @@ footer {
       </div>
 
       <div class="project-card">
-        <div class="p-num">05 — Systems</div>
+        <div class="p-num">06 — Systems</div>
         <h2 class="p-title">8086 Assembly Program</h2>
         <p class="p-desc">Low-level program developed in 8086 assembly with full project defence.</p>
         <ul class="p-bullets">
